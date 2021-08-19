@@ -37,4 +37,11 @@ public class EmployeeController {
         return "all_employees";
     }
 
+    @GetMapping("/available-flights")
+    public String checkFlightsAvailable(Model model) {
+        List<Employee> employees = employeeService.fetchAllEmployees();
+        model.addAttribute("flights", employees);
+        return "all_flights";
+    }
+
 }
